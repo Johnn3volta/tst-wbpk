@@ -1,0 +1,11 @@
+@import '~normalize.css';
+
+@import "global/vars";
+@import "global/fonts";
+
+body{
+  font-weight: 400;
+  color: #444444;
+  display: flex;
+}
+
