@@ -1,9 +1,9 @@
-const path             = require('path'),
-  ProgressBarPlugin    = require('progress-bar-webpack-plugin'),
-  CopyWebpackPlugin    = require('copy-webpack-plugin'),
-  HtmlWebpackPlugin    = require('html-webpack-plugin'),
-  CleanWebpackPlugin   = require('clean-webpack-plugin'),
-  VueLoaderPlugin      = require('vue-loader/lib/plugin'),
+const path = require('path'),
+  ProgressBarPlugin = require('progress-bar-webpack-plugin'),
+  CopyWebpackPlugin = require('copy-webpack-plugin'),
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  CleanWebpackPlugin = require('clean-webpack-plugin'),
+  VueLoaderPlugin = require('vue-loader/lib/plugin'),
   MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
@@ -19,7 +19,7 @@ module.exports = (env) => {
         // файл js для данной точки входа
         './src/js/main.js',
         // файл scss для данной точки входа
-        './src/styles/style.scss'
+        // './src/styles/style.scss'
       ],
     },
     // Точка выхода для js
@@ -31,7 +31,7 @@ module.exports = (env) => {
     },
     // Отвечает за sourceMaps
     devtool: devMode ? 'source-map' : false,
-    // Настройки devServera
+    // Настройки devServer
     devServer: {
       // При запуске открывает сразу в браузере
       open: true,
@@ -51,13 +51,20 @@ module.exports = (env) => {
             }
           }
         },
-        // отвечает за файлы css,scss,sass
+        /* отвечает за файлы css,scss
+        *  лоадеры подключаются с конца
+        *  sass-loader    - обработка scss
+        *  postcss-loader - делает обработку css в соответсвии с параметрами задаными в файле postcss.config.js
+        *  sass-loader    - компилирует css
+        *
+        *  (?sourceMap делает подключает sourceMap в соответсвии со значением с devtool)
+        */
         {
-          test: /\.(sa|sc|c)ss$/,
+          test: /\.(sc|c)ss$/,
           use: [
             MiniCssExtractPlugin.loader,
             'css-loader?sourceMap',
-            'postcss-loader',
+            'postcss-loader?sourceMap',
             'sass-loader?sourceMap'
           ],
         },
