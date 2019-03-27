@@ -42,7 +42,7 @@ module.exports = (env) => {
         {
           test: /\.(sa|sc|c)ss$/,
           use: [
-            devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+            MiniCssExtractPlugin.loader,
             'css-loader?sourceMap',
             'postcss-loader',
             'sass-loader?sourceMap'

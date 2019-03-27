@@ -1,4 +1,4 @@
-# Сборка Webpack
+# Сборка Webpack 4
 
 ## Перед стартом проекта необходимо
 
@@ -61,6 +61,10 @@ new HtmlWebpackPlugin({
  ``` js
  npm run dev
  ```
+   * Удаление папки build принудительно
+  ``` js
+  npm run clean
+  ```
  
  Исходники
  -

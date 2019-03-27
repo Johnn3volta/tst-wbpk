@@ -1,11 +1,15 @@
 @import '~normalize.css';
-
 @import "global/vars";
 @import "global/fonts";
 
-body{
-  font-weight: 400;
-  color: #444444;
+#app {
+  height: 100vh;
   display: flex;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 200px;
 }
 
