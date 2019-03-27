@@ -19,7 +19,7 @@ module.exports = (env) => {
         // файл js для данной точки входа
         './src/js/main.js',
         // файл scss для данной точки входа
-        // './src/styles/style.scss'
+        './src/styles/style.scss'
       ],
     },
     // Точка выхода для js
