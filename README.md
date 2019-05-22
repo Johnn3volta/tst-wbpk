@@ -108,10 +108,10 @@ webpack.config.js              Настройки сборщика
 -
 ```
 "devDependencies": {
-        "babel-core": "^6.26.3",
-        "babel-loader": "^7.1.5",
-        "babel-preset-env": "^1.7.0",
-        "babel-preset-stage-0": "^6.24.1",
+        "@babel/core": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/register": "^7.4.4",
+        "babel-loader": "^8.0.6",
         "bootstrap": "^4.3.1",
         "clean-webpack-plugin": "^2.0.1",
         "copy-webpack-plugin": "^5.0.2",
@@ -127,12 +127,15 @@ webpack.config.js              Настройки сборщика
         "postcss-cssnext": "^3.1.0",
         "postcss-loader": "^3.0.0",
         "progress-bar-webpack-plugin": "^1.12.1",
+        "pug": "^2.0.3",
+        "pug-loader": "^2.4.0",
         "rimraf": "^2.6.3",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
         "stylus": "^0.54.5",
         "stylus-loader": "^3.0.2",
         "url-loader": "^1.1.2",
+        "v-mask": "^1.3.3",
         "vue": "^2.6.10",
         "vue-loader": "^15.7.0",
         "vue-resource": "^1.5.1",
@@ -141,6 +144,9 @@ webpack.config.js              Настройки сборщика
         "webpack": "^4.29.6",
         "webpack-cli": "^3.3.0",
         "webpack-dev-server": "^3.2.1"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.4.4"
     }
 ```
 
