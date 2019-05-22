@@ -88,8 +88,14 @@ src                            Исходная папка
     sections/                  Папка
       main.scss                Файл
     style.scss                 Главный файл стилей(может быть sass)
-  index.html                   Index
+  templates                    Папка с шаблонами
+    chunks                     Папка с чанками
+    forms                      Папка с формами
+    menus                      Папка с менюхами
+    sections                   Папка с секциями
+  index.pug                    Index
 .babel.rc                      Настройки для babel
+.browserslist                  Настройки для babel
 .editorconfig                  Настройки форматирования проекта(кодировка, отступы и т.д.)
 .gitignore                     Файл для git
 package.json                   Файл зависимостей
