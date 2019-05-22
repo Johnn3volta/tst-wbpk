@@ -51,6 +51,11 @@ module.exports = (env) => {
                         }
                     }
                 },
+                /* Обработчике Pug */
+                {
+                    test:/\.pug$/,
+                    use:["pug-loader"]
+                },
                 /* отвечает за файлы css,scss
                 *  лоадеры подключаются с конца
                 *  sass-loader    - обработка scss
@@ -143,7 +148,7 @@ module.exports = (env) => {
             // Компиляция html
             new HtmlWebpackPlugin({
                 // исходный файл
-                template: './src/index.html',
+                template: './src/index.pug',
                 // Название компилируемого файла
                 filename: 'index.html',
                 // Название точки входа для подтягивания css и js. С свйойством inject: false скрипты и стили подключаем вручну в исходном файле
