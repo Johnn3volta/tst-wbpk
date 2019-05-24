@@ -4,6 +4,7 @@ const path                 = require('path'),
       HtmlWebpackPlugin    = require('html-webpack-plugin'),
       CleanWebpackPlugin   = require('clean-webpack-plugin'),
       VueLoaderPlugin      = require('vue-loader/lib/plugin'),
+      webpack              = require('webpack'),
       MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
@@ -53,8 +54,8 @@ module.exports = (env) => {
                 },
                 /* Обработчике Pug */
                 {
-                    test:/\.pug$/,
-                    use:["pug-loader"]
+                    test: /\.pug$/,
+                    use: ["pug-loader"]
                 },
                 /* отвечает за файлы css,scss
                 *  лоадеры подключаются с конца
@@ -145,6 +146,11 @@ module.exports = (env) => {
                 },
             ]),
             new VueLoaderPlugin(),
+            // alias ля $,jQuery
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery'
+            }),
             // Компиляция html
             new HtmlWebpackPlugin({
                 // исходный файл
@@ -158,7 +164,7 @@ module.exports = (env) => {
             }),
         ],
     };
-    // Очистка папки buid перед компиляцией
+    // Очистка папки build перед компиляцией
     if (!devMode) {
         conf.plugins.push(new CleanWebpackPlugin())
     }
