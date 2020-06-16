@@ -1,16 +1,15 @@
 import Vue from 'vue'
 import App from '../components/app'
 
-import '@babel/polyfill';
-import './polyfill-foreach';
-
 new Vue({
     el: '#app',
     data: {
-        test: 'Колян Полян',
-        test2: 'Vasilii Joker'
+       name: 'Man'
     },
-    components: {App}
+    components: {App},
+    mounted() {
+        console.log(`Hello ${this.name}`);
+    }
 });
 
-console.log('Hello man');
+

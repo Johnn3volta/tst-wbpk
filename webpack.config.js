@@ -1,11 +1,11 @@
-const path                 = require('path'),
-      ProgressBarPlugin    = require('progress-bar-webpack-plugin'),
-      CopyWebpackPlugin    = require('copy-webpack-plugin'),
-      HtmlWebpackPlugin    = require('html-webpack-plugin'),
-      CleanWebpackPlugin   = require('clean-webpack-plugin'),
-      VueLoaderPlugin      = require('vue-loader/lib/plugin'),
-      webpack              = require('webpack'),
-      MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path'),
+  ProgressBarPlugin = require('progress-bar-webpack-plugin'),
+  CopyWebpackPlugin = require('copy-webpack-plugin'),
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  { CleanWebpackPlugin } = require('clean-webpack-plugin'),
+  VueLoaderPlugin = require('vue-loader/lib/plugin'),
+  webpack = require('webpack'),
+  MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = (env) => {
@@ -134,17 +134,19 @@ module.exports = (env) => {
             new ProgressBarPlugin(),
             // Компиляция css
             new MiniCssExtractPlugin(
-                {
-                    filename: 'css/[name].min.css'
-                }
+              {
+                  filename: 'css/[name].min.css'
+              }
             ),
             // Копирование файлов
-            new CopyWebpackPlugin([
-                {
-                    from: './src/images',
-                    to: 'images'
-                },
-            ]),
+            new CopyWebpackPlugin({
+                patterns: [
+                    {
+                        from: './src/images',
+                        to: 'images'
+                    }
+                ]
+            }),
             new VueLoaderPlugin(),
             // alias ля $,jQuery
             new webpack.ProvidePlugin({
