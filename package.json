@@ -5,7 +5,7 @@
   "main": "src/js/index.js",
   "scripts": {
     "dev": "webpack-dev-server  --env dev",
-    "build": "eslint *.js src/**/*.js src/**/*.vue && webpack --mode production --env babel && html build/*.html --indent-size 2",
+    "build": "webpack --mode production --env babel && html build/*.html --indent-size 2",
     "light": "webpack --mode production",
     "watch": "webpack --watch",
     "clean": "rimraf build",
